@@ -60,11 +60,15 @@ int main(){
                 cout << "" << endl;
             break;
         default:
-            cout << "Invalid selection. Please try again" << endl;
-
+            if(choice != 4) {
+                cout << "Invalid selection. Please try again." << endl;
+            }
+            else 
+            cout << " ";
         }
 
     }while(choice != 4);
-
+cout << " ";
+cout << "Thank you for using the ATM Machine!";
 return 0;
 }
