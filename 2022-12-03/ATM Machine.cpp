@@ -3,6 +3,7 @@
 using namespace std;
 
 int choice;
+int redo;
 
 int main(){
 
@@ -28,14 +29,33 @@ int main(){
         //Evaluate option
         switch(choice){
         case 1:
+        system("cls");
+        cout << "" << endl;
             cout << "Your balance is: Php." << balance << endl;
             cout << "" << endl;
+
+            cout << "" << endl;
+            cout << "Thank you for using the ATM Machine!" << endl;
+            cout << "Would you like to do another transaction?" << endl;
+            cout << "" << endl;
+            cout << "Enter 1 to do another transaction, else press 0." << endl;
+            cin >> redo;
+
+            if(redo == 1){
+                system("cls");
+                break;
+            }
+            else
+            redo = 0;
             break;
         case 2:
+                system("cls");
+        cout << "" << endl;
             cout << "How much would you like to deposit? Php. ";
             cin >> amount;
             cout << "" << endl;
             if(amount <= 0){
+                cout << "" << endl;
                 cout << "We could not accept that amount. Try again or exit." << endl;
                 cout << "" << endl;
                 break;
@@ -43,12 +63,29 @@ int main(){
             balance += amount;
             cout << "A total of " << amount << " has been added to your account!" << endl;
             cout << "" << endl;
+
+            cout << "" << endl;
+            cout << "Thank you for using the ATM Machine!" << endl;
+            cout << "Would you like to do another transaction?" << endl;
+            cout << "" << endl;
+            cout << "Enter 1 to do another transaction, else press 0." << endl;
+            cin >> redo;
+
+            if(redo == 1){
+                system("cls");
+                break;
+            }
+else
+            redo = 0;
             break;
         case 3:
+                system("cls");
+        cout << "" << endl;
             cout << "How much would you like to withdraw? Php. ";
             cin >> amount;
             cout << "" << endl;
             if(amount <= 0){
+                cout << "" << endl;
                 cout << "We could not accept that amount. Try again or exit." << endl;
                 cout << "" << endl;
                 break;
@@ -59,6 +96,36 @@ int main(){
             else
                 cout << "Insufficient balance" << endl;
                 cout << "" << endl;
+
+            cout << "" << endl;
+            cout << "Thank you for using the ATM Machine!" << endl;
+            cout << "Would you like to do another transaction?" << endl;
+            cout << "" << endl;
+            cout << "Enter 1 to do another transaction, else press 0." << endl;
+            cin >> redo;
+
+            if(redo == 1){
+                system("cls");
+                break;
+            }
+            else
+            redo = 0;
+            break;
+        case 4:
+            system("cls");
+            cout << "" << endl;
+            cout << "Thank you for using the ATM Machine!" << endl;
+            cout << "Would you like to do another transaction?" << endl;
+            cout << "" << endl;
+            cout << "Enter 1 to do another transaction, else press 0." << endl;
+            cin >> redo;
+
+            if(redo == 1){
+                system("cls");
+                break;
+            }
+            else
+            redo = 0;
             break;
         default:
             if(choice != 4) {
@@ -68,9 +135,11 @@ int main(){
             cout << " ";
         }
 
-    }while(choice != 4);
+    }while(redo != 0);
+    system("cls");
         cout << " " << endl;
-        cout << "Thank you for using the ATM Machine!";
+        cout << "Thank you for using the ATM Machine!" << endl;
+        cout << "Re-run the program again!";
         cout << " " << endl;
 return 0;
 }
