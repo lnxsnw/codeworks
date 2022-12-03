@@ -2,6 +2,7 @@
 using namespace std; // Because why not?
 
 // Viewer Notice: The code has many comments because it is used as a demonstration too, Flowchart may be necessary.
+// This code calculates the average of 2 numbers. However, those numbers must only be between 50 to 100 only.
 
 int main()
     {
