@@ -2,10 +2,11 @@
 #include <iomanip>
 using namespace std;
 
+int choice;
+
 int main(){
 
     double amount, balance = 0;
-    int choice;
 
     //Set to two decimal places
     cout << fixed << setprecision(2);
@@ -31,15 +32,26 @@ int main(){
             cout << "" << endl;
             break;
         case 2:
-            cout << "How much would you like to deposit? Php.";
+            cout << "How much would you like to deposit? Php. ";
             cin >> amount;
             cout << "" << endl;
+            if(amount <= 0){
+                cout << "We could not accept that amount. Try again or exit." << endl;
+                cout << "" << endl;
+                break;
+            }
             balance += amount;
+            cout << "A total of " << amount << " has been added to your account!";
             break;
         case 3:
-            cout << "How much would you like to withdraw? Php.";
+            cout << "How much would you like to withdraw? Php. ";
             cin >> amount;
             cout << "" << endl;
+            if(amount <= 0){
+                cout << "We could not accept that amount. Try again or exit." << endl;
+                cout << "" << endl;
+                break;
+            }
             if(balance - amount >= 0){
                 balance -= amount;
             }
