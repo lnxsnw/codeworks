@@ -38,7 +38,7 @@ int main() {
             else if (payment >= 99) {
                 cout << "Purchase Complete!\n";
                 cout << "\n";
-                cout << "You Ordered: [2] P150 - Fried Chicken\n";
+                cout << "You Ordered: [1] P100 - Fried Chicken\n";
                 cout << "You Paid: "<<payment<<endl;
                 cout << "Your Change is: "<<payment-100<<endl;
                 cout << "Enjoy Your Meal!";
