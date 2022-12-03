@@ -41,7 +41,8 @@ int main(){
                 break;
             }
             balance += amount;
-            cout << "A total of " << amount << " has been added to your account!";
+            cout << "A total of " << amount << " has been added to your account!" << endl;
+            cout << "" << endl;
             break;
         case 3:
             cout << "How much would you like to withdraw? Php. ";
@@ -63,12 +64,13 @@ int main(){
             if(choice != 4) {
                 cout << "Invalid selection. Please try again." << endl;
             }
-            else 
+            else
             cout << " ";
         }
 
     }while(choice != 4);
-cout << " ";
-cout << "Thank you for using the ATM Machine!";
+        cout << " " << endl;
+        cout << "Thank you for using the ATM Machine!";
+        cout << " " << endl;
 return 0;
 }
