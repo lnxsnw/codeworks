@@ -5,6 +5,8 @@ using namespace std;
 int choice;
 int redo;
 
+// system("cls") is a Windows exclusive thing. Run this code on Windows (Codeblocks or similar) to avoid getting errors!
+
 int main(){
 
     double amount, balance = 0;
