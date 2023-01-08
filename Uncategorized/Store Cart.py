@@ -1,64 +1,73 @@
-# Shopping Cart v3
+# Shopping Cart v4
 # Run this at https://www.onlinegdb.com/
 import os
-# Create a dictionary of food items and prices
-menu = {
-    "Coffee": 10,
-    "Coke": 15,
-    "Pizza": 25,
-    "Cake": 50,
-    "Cookies": 7
+# Menu options
+menu_items = {
+    1: {"item": "Pistachio Cream Cold Brew", "price": 199.99},
+    2: {"item": "Iced Caramel Macchiato", "price": 299.49},
+    3: {"item": "Vanilla Sweet Cream Nitro Cold Brew", "price": 420.69},
+    4: {"item": "Iced Peppermint White Chocolate Mocha", "price": 599.89},
+    5: {"item": "Iced Clover Brewed® Decaf Pike Place® Roast", "price": 720.99}
 }
 
-# Initialize a list to store the items the user picks
-order = []
+# Cart to store the items
+cart = []
 
-# Initialize a variable to store the total cost of the order
-total_cost = 0
+# Main program loop
+while True:
+    # Print menu
+    os.system("clear")
+    print("Welcome to the store!")
+    print("Here are the menu options:")
+    print("\n")
+    for key, value in menu_items.items():
+        print(f"[{key}] - {value['item']}: P{value['price']}")
+    print("\n")
+    print("Select by typing from the numbers 1 to 5.")
+    print("Type 'checkout' to proceed to checkout.")
 
-# Create a flag variable to track whether the user is done picking items
-done = False
+    # Get user input
+    print("\n")
+    user_input = input("What would you like to buy? ")
 
-# Create a flag variable to track whether the user wants to checkout
-checkout = False
+    # Check if user wants to checkout
+    if user_input.lower() == "checkout":
+        break
 
-# Loop until the user is done picking items
-while not done:
-    # Clear Screen and Print the menu
-    os.system('clear')
-    print("Menu:")
-    for item, price in menu.items():
-        print("{}: ${}".format(item, price))
+    # Check if input is a valid menu option
+    if not user_input.isdigit() or int(user_input) not in menu_items:
+        print("Invalid input. Please try again.")
+        continue
 
-    # Prompt the user to pick an item
-    choice = input("Choose an item: ")
+    # Add item to cart
+    cart.append(menu_items[int(user_input)])
 
-    # Add the item to the order and update the total cost
-    order.append(choice)
-    total_cost += menu[choice]
+# Print the items in the cart
+os.system("clear")
+print("Here are the items in your cart:")
+print("\n")
+for item in cart:
+    print(f"{item['item']}: {item['price']}")
 
-    # Ask if the user wants to choose another item
-    another = input("Do you want to choose another item (y/n)? ")
-    if another.lower() == "n":
-        # If the user doesn't want to choose another item, set the "done" flag to True
-        done = True
+# Calculate total price
+print("\n")
+total_price = sum([item["price"] for item in cart])
+print(f"Total price: {total_price}")
 
-# Print the order and total cost
-os.system('clear')
-print("Your order: {}".format(order))
-print("Total cost: P{}".format(total_cost))
+# Get payment
+while True:
+    payment = input("Enter amount to pay: ")
+    if not payment.isdigit():
+        print("Invalid input. Please try again.")
+        continue
+    payment = float(payment)
+    if payment < total_price:
+        print("Not enough payment. Please try again.")
+        continue
+    break
 
-# Ask if the user wants to checkout; Also repeat when customer has no money before and now has it
-checkout = input("Do you want to checkout (y/n)? ")
-if checkout.lower() == "y":
-    # If the user wants to checkout, clear screen and calculate the change
-    os.system('clear')
-    paid = float(input("Type in your amount to pay: P"))
-    if (int(paid) > int(total_cost)):
-        change = paid - total_cost
-        print("Your change is: P{:.2f}".format(change))
-    else:
-        change = paid - total_cost
-        print("Oops! You are in short of P{:.2f}".format(change))
-else:
-    print("*Assumes you returned the items and left the store*")
+# Calculate change
+os.system("clear")
+change = payment - total_price
+print(f"Your change is: {change}")
+print("Thank you for shopping with us!")
